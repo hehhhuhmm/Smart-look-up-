@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+#switchBtn {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--mainBg);
+  color: var(--black);
+  cursor: pointer;
+}
+#switchBtn:hover {
+  background: var(--mainBgHover);
+}
+
+/* Stats */
+.stats {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Input */
+.word-input input {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 18px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: rgba(226, 214, 126, 0.15);
+  outline: none;
+  text-align: center;
+}
+.word-input input:focus {
+  border-color: var(--mainBgHover);
+  background: rgba(226, 214, 126, 0.3);
+}
+
+/* Word list */
+.word-list {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+a {
+  text-decoration: none;   /* ✅ no underline */
+  color: inherit;          /* ✅ same as parent */
+}
+
+.item {
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: var(--mainBg);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 18px;
+  text-align: center;
+  min-width: 60%;
+  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+  animation: fadeIn 0.4s ease; /* ✅ animate new word */
+}
+
+.item:hover {
+  background: var(--mainBgHover);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Submitted words (crossed out) */
+.wordSubmitted {
+  text-decoration: line-through;
+  opacity: 0.5;
+  transform: scale(0.95); /* ✅ shrink slightly */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Deleted words */
+.item.removing {
+  opacity: 0;
+  transform: translateX(60px); /* ✅ slide out */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Keyframes for new word fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: var(--black);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.success { background: #8bc34a70; }
+.btn.success:hover { background: #8bc34a90; }
+.btn.danger { background: #fb8c0070; }
+.btn.danger:hover { background: #fb8c0090; }

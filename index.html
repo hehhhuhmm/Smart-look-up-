@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="dark.css" id="theme" />
+		<title>Smart Look up</title>
+	</head>
+	<body>
+		<div class="app">
+			<header>
+				<button type="button" onclick="switchMode()" id="switchBtn">🌗 Switch mode</button>
+			</header>
+
+			<section class="stats">
+				<div><strong>Total words:</strong> <span id="twc"></span></div>
+				<div>
+					<strong>Submitted:</strong> <span id="wsc">0</span> |
+					<span id="pctwsc">0%</span>
+				</div>
+			</section>
+
+			<section class="word-input">
+				<form class="box" title="Type word to search">
+					<input
+						type="text"
+						id="word"
+						placeholder="Type a word..."
+						oninput="resizeInput()" />
+				</form>
+			</section>
+
+			<section id="list" class="word-list"></section>
+
+			<section class="actions">
+				<button type="submit" class="btn success" id="submitBtn" onclick="submit()">
+					Submit
+				</button>
+				<button type="reset" class="btn danger" id="resetBtn" onclick="reset()">
+					Reset
+				</button>
+			</section>
+		</div>
+		<script src="script.js" defer></script>
+	</body>
+</html>
